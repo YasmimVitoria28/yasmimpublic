@@ -1,7 +1,7 @@
 
 body {
     font-family: Didot, serif;
-    background-color: #f4f4f4;
+    background-color: #e2d5d5;
     text-align: center;
 }
 
@@ -17,6 +17,7 @@ header {
     background-color: #333;
     color: #ffffff;
     padding: 20px;
+    
 }
 
 nav ul {
@@ -40,10 +41,12 @@ nav ul li a {
     background-color: #f0f0f0;
 }
 
-.hero h1 {
-    font-size: 1.2em;
-    margin-bottom: 30px;
+.hero h1 {  
+  font-family: 'Comfortaa', cursive;
+  font-weight: 700; 
+  letter-spacing: -0.02em; 
 }
+
 
 .link-grande {
     font-size: 20px;
