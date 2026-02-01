@@ -7,7 +7,7 @@
 
 /* Configurações do Corpo (Body) */
 body {
-    background-color: #eef7c2; /* Cor de fundo solicitada */
+    background-color: #ffffff; /* Cor de fundo solicitada */
     font-family: 'Josefin Sans', sans-serif; /* Fonte estilo Glacial Indifference */
     color: #000;
     overflow-x: hidden; /* Evita rolagem horizontal indesejada */
@@ -18,7 +18,7 @@ header {
     display: flex;
     justify-content: space-between; /* Espaça logo, menu e insta */
     align-items: center; /* Alinha verticalmente ao centro */
-    padding: 20px 40px;
+    padding: 10px 20px;
     width: 100%;
 }
 
@@ -26,14 +26,15 @@ header {
 .logo {
     /* Dimensões solicitadas: 310L x 220A. 
        Definimos max-width para garantir responsividade em telas menores */
-    width: 310px;
+    width: 150px;
     height: auto; 
-    max-height: 220px;
+    max-height: 100px;
     object-fit: contain;
 }
 
 /* Menu de Navegação */
 nav.header-center {
+    justify-content: center;
     display: flex;
     gap: 30px; /* Espaço entre os links */
 }
@@ -44,6 +45,8 @@ nav a {
     font-size: 1.2rem;
     font-weight: 500;
     transition: color 0.3s ease;
+    justify-content: center;
+    text-align: center;
 }
 
 nav a:hover {
@@ -52,14 +55,14 @@ nav a:hover {
 
 /* Ícone do Instagram */
 .header-right .social-icon {
-    width: 40px; /* Tamanho padrão para ícones */
-    height: 40px;
+    width: 60px; /* Tamanho padrão para ícones */
+    height: 60px;
     cursor: pointer;
 }
 
 /* --- ESTILO DA GALERIA PRINCIPAL --- */
 main {
-    padding: 40px 20px;
+    padding: 10px 5px;
     text-align: center;
 }
 
@@ -72,9 +75,8 @@ main {
 }
 
 .photo {
-    /* Dimensões solicitadas: 527L x 651A */
-    width: 527px;
-    height: 651px;
+    width: 350px;
+    height: 270px;
     object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
     
     /* Responsividade: Se a tela for menor que 527px, a imagem encolhe */
