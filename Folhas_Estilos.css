@@ -1,15 +1,12 @@
 
 body {
     font-family: Didot, serif;
-    background-color: #e2d5d5;
+    background-color: #f4f4f4;
     text-align: center;
 }
 
 h1 {
-
-  font-family: 'Comfortaa', cursive;
-  font-weight: 700; /* Valor para o Negrito/Bold */
-  letter-spacing: -0.02em; /* Opcional: para aproximar as letras como na imagem */
+    color: #333;
 }
 
 video {
@@ -20,7 +17,6 @@ header {
     background-color: #333;
     color: #ffffff;
     padding: 20px;
-    
 }
 
 nav ul {
