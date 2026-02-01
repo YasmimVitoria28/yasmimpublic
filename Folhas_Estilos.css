@@ -1,52 +1,118 @@
-
-body {
-    font-family: Didot, serif;
-    background-color: #f4f4f4;
-    text-align: center;
-}
-
-h1 {
-    color: #333;
-}
-
-video {
-    margin-top: 20px;
-}
-
-header {
-    background-color: #333;
-    color: #ffffff;
-    padding: 20px;
-}
-
-nav ul {
-    list-style: none;
+/* Reset básico para remover margens padrão do navegador */
+* {
+    margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-nav ul li {
-    display: inline;
-    margin-right: 20px;
+/* Configurações do Corpo (Body) */
+body {
+    background-color: #faffe0; /* Cor de fundo solicitada */
+    font-family: 'Josefin Sans', sans-serif; /* Fonte estilo Glacial Indifference */
+    color: #000;
+    overflow-x: hidden; /* Evita rolagem horizontal indesejada */
 }
 
-nav ul li a {
-    color: #fff;
+/* --- ESTILO DO CABEÇALHO --- */
+header {
+    display: flex;
+    justify-content: space-between; /* Espaça logo, menu e insta */
+    align-items: center; /* Alinha verticalmente ao centro */
+    padding: 20px 40px;
+    width: 100%;
+}
+
+/* Logo */
+.logo {
+    /* Dimensões solicitadas: 310L x 220A. 
+       Definimos max-width para garantir responsividade em telas menores */
+    width: 310px;
+    height: auto; 
+    max-height: 220px;
+    object-fit: contain;
+}
+
+/* Menu de Navegação */
+nav.header-center {
+    display: flex;
+    gap: 30px; /* Espaço entre os links */
+}
+
+nav a {
     text-decoration: none;
+    color: #000;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
 }
 
-.hero {
+nav a:hover {
+    color: #555; /* Efeito leve ao passar o mouse */
+}
+
+/* Ícone do Instagram */
+.header-right .social-icon {
+    width: 40px; /* Tamanho padrão para ícones */
+    height: 40px;
+    cursor: pointer;
+}
+
+/* --- ESTILO DA GALERIA PRINCIPAL --- */
+main {
+    padding: 40px 20px;
     text-align: center;
-    padding: 100px 20px;
-    background-color: #f0f0f0;
 }
 
-.hero h1 {
-    font-size: 1.2em;
-    margin-bottom: 30px;
+.gallery-container {
+    display: flex;
+    justify-content: center; /* Centraliza as imagens na tela */
+    gap: 65px; /* Espaçamento solicitado entre imagens */
+    flex-wrap: wrap; /* Permite que imagens caiam para a linha de baixo se não couberem */
+    margin-bottom: 40px;
 }
 
-.link-grande {
-    font-size: 20px;
-    color: #ffffff;
+.photo {
+    /* Dimensões solicitadas: 527L x 651A */
+    width: 527px;
+    height: 651px;
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+    
+    /* Responsividade: Se a tela for menor que 527px, a imagem encolhe */
+    max-width: 100%; 
+    height: auto;
+    aspect-ratio: 527 / 651; /* Mantém a proporção se diminuir */
+    
+    border-radius: 2px; /* Leve arredondamento opcional para estética */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Sombra suave opcional */
 }
 
+/* --- FRASE FINAL --- */
+.footer-phrase {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+/* --- RESPONSIVIDADE (CELULAR E TABLET) --- */
+@media (max-width: 1024px) {
+    /* Em telas médias, o cabeçalho muda a organização */
+    header {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    
+    nav.header-center {
+        flex-direction: column; /* Links um embaixo do outro no celular */
+        gap: 10px;
+    }
+
+    .gallery-container {
+        gap: 30px; /* Reduz espaço entre fotos no celular */
+    }
+    
+    .logo {
+        width: 200px; /* Reduz logo no celular */
+    }
+}
