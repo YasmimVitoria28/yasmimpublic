@@ -7,36 +7,35 @@
 
 /* Configurações do Corpo (Body) */
 body {
-    background-color: #ffffff; /* Cor de fundo solicitada */
-    font-family: 'Josefin Sans', sans-serif; /* Fonte estilo Glacial Indifference */
+    background-color: #faffe0; /* Ajustado para o tom creme das imagens (era ffffff) */
+    font-family: 'Josefin Sans', sans-serif;
     color: #000;
-    overflow-x: hidden; /* Evita rolagem horizontal indesejada */
+    overflow-x: hidden;
 }
 
 /* --- ESTILO DO CABEÇALHO --- */
 header {
     display: flex;
-    justify-content: space-between; /* Espaça logo, menu e insta */
-    align-items: center; /* Alinha verticalmente ao centro */
-    padding: 10px 20px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
     width: 100%;
 }
 
 /* Logo */
 .logo {
-    /* Dimensões solicitadas: 310L x 220A. 
-       Definimos max-width para garantir responsividade em telas menores */
     width: 150px;
     height: auto; 
     max-height: 100px;
     object-fit: contain;
+    cursor: pointer; /* Indica que é clicável */
 }
 
 /* Menu de Navegação */
 nav.header-center {
     justify-content: center;
     display: flex;
-    gap: 30px; /* Espaço entre os links */
+    gap: 30px;
 }
 
 nav a {
@@ -45,50 +44,105 @@ nav a {
     font-size: 1.2rem;
     font-weight: 500;
     transition: color 0.3s ease;
-    justify-content: center;
     text-align: center;
 }
 
 nav a:hover {
-    color: #555; /* Efeito leve ao passar o mouse */
+    color: #555;
 }
 
 /* Ícone do Instagram */
 .header-right .social-icon {
-    width: 60px; /* Tamanho padrão para ícones */
-    height: 60px;
+    width: 40px;
+    height: 40px;
     cursor: pointer;
 }
 
-/* --- ESTILO DA GALERIA PRINCIPAL --- */
+/* --- GALERIA GERAL (Home) --- */
+/* Mantive suas classes originais para não quebrar a home */
 main {
-    padding: 10px 5px;
+    padding: 20px;
     text-align: center;
 }
 
 .gallery-container {
     display: flex;
-    justify-content: center; /* Centraliza as imagens na tela */
-    gap: 65px; /* Espaçamento solicitado entre imagens */
-    flex-wrap: wrap; /* Permite que imagens caiam para a linha de baixo se não couberem */
+    justify-content: center;
+    gap: 65px;
+    flex-wrap: wrap;
     margin-bottom: 40px;
 }
 
 .photo {
     width: 350px;
-    height: 270px;
-    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
-    
-    /* Responsividade: Se a tela for menor que 527px, a imagem encolhe */
-    max-width: 100%; 
     height: auto;
-    aspect-ratio: 527 / 651; /* Mantém a proporção se diminuir */
-    
-    border-radius: 2px; /* Leve arredondamento opcional para estética */
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Sombra suave opcional */
+    aspect-ratio: 527 / 651;
+    object-fit: cover;
+    border-radius: 2px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-/* --- FRASE FINAL --- */
+/* --- NOVA SEÇÃO: PÁGINA TRABALHOS --- */
+
+.trabalhos-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px; /* Espaçamento solicitado */
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* O cartão que envolve a imagem e o texto */
+.card-item {
+    position: relative; /* Necessário para posicionar o texto em cima */
+    display: block;
+    width: 510px; /* Largura solicitada */
+    height: 510px; /* Altura solicitada */
+    text-decoration: none;
+    overflow: hidden; /* Garante que nada saia do quadrado */
+}
+
+.card-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* A imagem preenche o quadrado sem distorcer */
+    transition: transform 0.3s ease;
+}
+
+.card-item:hover img {
+    transform: scale(1.02); /* Leve zoom ao passar o mouse */
+}
+
+/* Etiquetas coloridas (Esportes, Familia, etc) */
+.label {
+    position: absolute;
+    bottom: 40px;
+    right: 0;
+    padding: 10px 30px 10px 20px;
+    color: white;
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: capitalize;
+    box-shadow: -2px 2px 5px rgba(0,0,0,0.3);
+}
+
+/* Cores específicas baseadas nas imagens */
+.label-esportes { background-color: #8B7E56; /* Tom dourado/terra */ }
+.label-familia { background-color: #6B8E57; /* Verde musgo */ }
+.label-eventos { background-color: #A63C3C; /* Vermelho escuro */ }
+.label-niver { background-color: #C17F43; /* Laranja queimado */ }
+.label-paisagem { background-color: #4A5D6E; /* Azul acinzentado */ }
+
+/* Estilo especial para o último card (Logo/Camera) */
+.logo-card img {
+    background-color: transparent;
+    padding: 50px; /* Dá um respiro para o desenho da câmera */
+    object-fit: contain;
+}
+
+/* --- RODAPÉ E EXTRAS --- */
 .footer-phrase {
     font-size: 1.5rem;
     margin-top: 20px;
@@ -98,7 +152,6 @@ main {
 
 /* --- RESPONSIVIDADE (CELULAR E TABLET) --- */
 @media (max-width: 1024px) {
-    /* Em telas médias, o cabeçalho muda a organização */
     header {
         flex-direction: column;
         gap: 20px;
@@ -106,15 +159,28 @@ main {
     }
     
     nav.header-center {
-        flex-direction: column; /* Links um embaixo do outro no celular */
-        gap: 10px;
+        flex-direction: column;
+        gap: 15px;
     }
 
     .gallery-container {
-        gap: 30px; /* Reduz espaço entre fotos no celular */
+        gap: 30px;
+    }
+
+    /* Ajuste específico para a página de trabalhos no celular */
+    .trabalhos-grid {
+        gap: 20px;
     }
     
-    .logo {
-        width: 200px; /* Reduz logo no celular */
+    .card-item {
+        width: 100%; /* Ocupa a largura da tela no celular */
+        height: auto;
+        aspect-ratio: 1 / 1; /* Mantém quadrado */
+        max-width: 510px;
+    }
+
+    .label {
+        font-size: 1.5rem; /* Fonte menor no celular */
+        bottom: 20px;
     }
 }
