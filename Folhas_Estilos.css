@@ -7,7 +7,7 @@
 
 /* Configurações do Corpo (Body) */
 body {
-    background-color: #faffe0; /* Ajustado para o tom creme das imagens (era ffffff) */
+    background-color: #ffffff; /* Ajustado para o tom creme das imagens (era ffffff) */
     font-family: 'Josefin Sans', sans-serif;
     color: #000;
     overflow-x: hidden;
@@ -59,7 +59,6 @@ nav a:hover {
 }
 
 /* --- GALERIA GERAL (Home) --- */
-/* Mantive suas classes originais para não quebrar a home */
 main {
     padding: 20px;
     text-align: center;
@@ -176,11 +175,203 @@ main {
         width: 100%; /* Ocupa a largura da tela no celular */
         height: auto;
         aspect-ratio: 1 / 1; /* Mantém quadrado */
-        max-width: 510px;
+        max-width: 400px;
     }
 
     .label {
         font-size: 1.5rem; /* Fonte menor no celular */
         bottom: 20px;
+    }
+}
+
+
+.trabalhos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas como na imagem */
+    gap: 20px;
+    padding: 20px;
+}
+
+.card-item {
+    position: relative; /* Necessário para posicionar a legenda em cima */
+    display: block;
+    overflow: hidden;
+}
+
+
+.label {
+    position: absolute;
+    bottom: 0.5cm;
+    right: 0;
+    padding: 10px 20px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    /* Adicione as cores específicas para cada label-esportes, label-familia, etc. */
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Configurações do Corpo (Body) */
+body {
+    background-color: #faffe0; /* Alterado para o tom creme das imagens (faffe0) */
+    font-family: 'Josefin Sans', sans-serif;
+    color: #000;
+    overflow-x: hidden;
+}
+
+/* --- ESTILO DO CABEÇALHO --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    width: 100%;
+}
+
+/* Logo */
+.logo {
+    width: 150px;
+    height: auto; 
+    max-height: 100px;
+    object-fit: contain;
+    cursor: pointer;
+}
+
+/* Menu de Navegação */
+nav.header-center {
+    justify-content: center;
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #000;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    text-align: center;
+}
+
+nav a:hover {
+    color: #555;
+}
+
+/* Ícone do Instagram */
+.header-right .social-icon {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+/* --- BARRA DE TÍTULO (PÁGINAS INTERNAS) --- */
+.page-title-bar {
+    background-color: #8f7a5c; /* Cor Marrom solicitada */
+    width: 100%;
+    padding: 15px 40px;
+    margin-bottom: 30px;
+}
+
+.page-title-bar h1 {
+    color: #fff;
+    font-weight: 700;
+    font-size: 2.5rem;
+    text-align: left; /* Alinhado à esquerda conforme imagem */
+}
+
+/* --- GALERIA GRID (ESPORTES) --- */
+main {
+    padding: 0 40px 40px 40px;
+}
+
+.esportes-grid {
+    display: grid;
+    /* Cria 4 colunas de tamanho igual */
+    grid-template-columns: repeat(4, 1fr); 
+    /* Altura base das linhas (o grid vai se ajustando) */
+    grid-auto-rows: 250px; 
+    gap: 25px; /* Espaçamento solicitado */
+}
+
+.grid-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a foto preencha o quadrado sem distorcer */
+    border-radius: 2px;
+    transition: transform 0.3s ease;
+}
+
+.grid-img:hover {
+    transform: scale(1.02);
+}
+
+/* --- CLASSES PARA OS TAMANHOS DIFERENTES --- */
+/* Imagem alta (ocupa 2 linhas verticais) */
+.tall {
+    grid-row: span 2;
+}
+
+/* Imagem larga (ocupa 2 colunas horizontais) */
+.wide {
+    grid-column: span 2;
+}
+
+/* Imagem Grande (quadradão - 2x2) */
+.big {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+/* --- FRASE FINAL --- */
+.footer-phrase {
+    text-align: center;
+    padding: 20px 0 40px 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 1024px) {
+    header {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    
+    nav.header-center {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    /* Ajuste do Grid para Celular/Tablet */
+    .esportes-grid {
+        grid-template-columns: repeat(2, 1fr); /* Reduz para 2 colunas */
+        grid-auto-rows: 200px;
+    }
+    
+    /* No celular, removemos algumas expansões exageradas se necessário,
+       mas manter span-2 funciona bem em 2 colunas */
+    .page-title-bar h1 {
+        font-size: 2rem;
+        text-align: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .esportes-grid {
+        grid-template-columns: 1fr; /* 1 coluna no celular pequeno */
+        grid-auto-rows: auto; /* Altura automática */
+    }
+    
+    /* Reseta os spans no celular para ficar uma embaixo da outra */
+    .tall, .wide, .big {
+        grid-column: auto;
+        grid-row: auto;
     }
 }
