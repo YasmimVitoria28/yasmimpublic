@@ -1,19 +1,22 @@
-/* Reset básico para remover margens padrão do navegador */
+/* ==========================================================================
+   1. RESET E CONFIGURAÇÕES GLOBAIS
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Configurações do Corpo (Body) */
 body {
-    background-color: #ffffff; /* Ajustado para o tom creme das imagens (era ffffff) */
+    background-color: #faffe0; /* Tom creme das imagens */
     font-family: 'Josefin Sans', sans-serif;
     color: #000;
     overflow-x: hidden;
 }
 
-/* --- ESTILO DO CABEÇALHO --- */
+/* ==========================================================================
+   2. COMPONENTES COMUNS (HEADER, FOOTER, BARRAS)
+   ========================================================================== */
 header {
     display: flex;
     justify-content: space-between;
@@ -22,16 +25,14 @@ header {
     width: 100%;
 }
 
-/* Logo */
 .logo {
     width: 150px;
     height: auto; 
     max-height: 100px;
     object-fit: contain;
-    cursor: pointer; /* Indica que é clicável */
+    cursor: pointer;
 }
 
-/* Menu de Navegação */
 nav.header-center {
     justify-content: center;
     display: flex;
@@ -51,14 +52,38 @@ nav a:hover {
     color: #555;
 }
 
-/* Ícone do Instagram */
 .header-right .social-icon {
     width: 40px;
     height: 40px;
     cursor: pointer;
 }
 
-/* --- GALERIA GERAL (Home) --- */
+/* Barra de Título Padrão (Internas) */
+.page-title-bar {
+    background-color: #8f7a5c; 
+    width: 100%;
+    padding: 15px 40px;
+    margin-bottom: 30px;
+}
+
+.page-title-bar h1 {
+    color: #fff;
+    font-weight: 700;
+    font-size: 2.5rem;
+    text-align: left;
+}
+
+.footer-phrase {
+    text-align: center;
+    padding: 20px 0 40px 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+/* ==========================================================================
+   3. HOME / GALERIA GERAL
+   ========================================================================== */
 main {
     padding: 20px;
     text-align: center;
@@ -81,43 +106,42 @@ main {
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-/* --- NOVA SEÇÃO: PÁGINA TRABALHOS --- */
-
+/* ==========================================================================
+   4. PÁGINA: TRABALHOS (GRID DE CATEGORIAS)
+   ========================================================================== */
 .trabalhos-grid {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 25px; /* Espaçamento solicitado */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px;
+    padding: 20px;
     max-width: 1600px;
     margin: 0 auto;
-    padding: 20px;
 }
 
-/* O cartão que envolve a imagem e o texto */
 .card-item {
-    position: relative; /* Necessário para posicionar o texto em cima */
+    position: relative;
     display: block;
-    width: 510px; /* Largura solicitada */
-    height: 510px; /* Altura solicitada */
+    width: 100%;
+    height: 450px;
     text-decoration: none;
-    overflow: hidden; /* Garante que nada saia do quadrado */
+    overflow: hidden;
 }
 
 .card-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* A imagem preenche o quadrado sem distorcer */
+    object-fit: cover;
     transition: transform 0.3s ease;
 }
 
 .card-item:hover img {
-    transform: scale(1.02); /* Leve zoom ao passar o mouse */
+    transform: scale(1.02);
 }
 
-/* Etiquetas coloridas (Esportes, Familia, etc) */
+/* Etiquetas e Cores */
 .label {
     position: absolute;
-    bottom: 40px;
+    bottom: 0.5cm;
     right: 0;
     padding: 10px 30px 10px 20px;
     color: white;
@@ -127,251 +151,349 @@ main {
     box-shadow: -2px 2px 5px rgba(0,0,0,0.3);
 }
 
-/* Cores específicas baseadas nas imagens */
-.label-esportes { background-color: #8B7E56; /* Tom dourado/terra */ }
-.label-familia { background-color: #6B8E57; /* Verde musgo */ }
-.label-eventos { background-color: #A63C3C; /* Vermelho escuro */ }
-.label-niver { background-color: #C17F43; /* Laranja queimado */ }
-.label-paisagem { background-color: #4A5D6E; /* Azul acinzentado */ }
+.label-esportes { background-color: #8B7E56; }
+.label-familia  { background-color: #6B8E57; }
+.label-eventos  { background-color: #A63C3C; }
+.label-niver    { background-color: #C17F43; }
+.label-paisagem { background-color: #4A5D6E; }
 
-/* Estilo especial para o último card (Logo/Camera) */
 .logo-card img {
     background-color: transparent;
-    padding: 50px; /* Dá um respiro para o desenho da câmera */
+    padding: 50px;
     object-fit: contain;
 }
 
-/* --- RODAPÉ E EXTRAS --- */
-.footer-phrase {
-    font-size: 1.5rem;
-    margin-top: 20px;
-    font-weight: 600;
-    color: #1a1a1a;
-}
+/* ==========================================================================
+   5. GRIDS ESPECÍFICOS (ESPORTES, FAMÍLIA, EVENTOS)
+   ========================================================================== */
 
-/* --- RESPONSIVIDADE (CELULAR E TABLET) --- */
-@media (max-width: 1024px) {
-    header {
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
-    }
-    
-    nav.header-center {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .gallery-container {
-        gap: 30px;
-    }
-
-    /* Ajuste específico para a página de trabalhos no celular */
-    .trabalhos-grid {
-        gap: 20px;
-    }
-    
-    .card-item {
-        width: 100%; /* Ocupa a largura da tela no celular */
-        height: auto;
-        aspect-ratio: 1 / 1; /* Mantém quadrado */
-        max-width: 400px;
-    }
-
-    .label {
-        font-size: 1.5rem; /* Fonte menor no celular */
-        bottom: 20px;
-    }
-}
-
-
-.trabalhos-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 colunas como na imagem */
-    gap: 20px;
-    padding: 20px;
-}
-
-.card-item {
-    position: relative; /* Necessário para posicionar a legenda em cima */
-    display: block;
-    overflow: hidden;
-}
-
-
-.label {
-    position: absolute;
-    bottom: 0.5cm;
-    right: 0;
-    padding: 10px 20px;
-    color: rgb(255, 255, 255);
-    font-weight: bold;
-    /* Adicione as cores específicas para cada label-esportes, label-familia, etc. */
-}
-
-/* Reset básico */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Configurações do Corpo (Body) */
-body {
-    background-color: #faffe0; /* Alterado para o tom creme das imagens (faffe0) */
-    font-family: 'Josefin Sans', sans-serif;
-    color: #000;
-    overflow-x: hidden;
-}
-
-/* --- ESTILO DO CABEÇALHO --- */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px;
-    width: 100%;
-}
-
-/* Logo */
-.logo {
-    width: 150px;
-    height: auto; 
-    max-height: 100px;
-    object-fit: contain;
-    cursor: pointer;
-}
-
-/* Menu de Navegação */
-nav.header-center {
-    justify-content: center;
-    display: flex;
-    gap: 30px;
-}
-
-nav a {
-    text-decoration: none;
-    color: #000;
-    font-size: 1.2rem;
-    font-weight: 500;
-    transition: color 0.3s ease;
-    text-align: center;
-}
-
-nav a:hover {
-    color: #555;
-}
-
-/* Ícone do Instagram */
-.header-right .social-icon {
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-}
-
-/* --- BARRA DE TÍTULO (PÁGINAS INTERNAS) --- */
-.page-title-bar {
-    background-color: #8f7a5c; /* Cor Marrom solicitada */
-    width: 100%;
-    padding: 15px 40px;
-    margin-bottom: 30px;
-}
-
-.page-title-bar h1 {
-    color: #fff;
-    font-weight: 700;
-    font-size: 2.5rem;
-    text-align: left; /* Alinhado à esquerda conforme imagem */
-}
-
-/* --- GALERIA GRID (ESPORTES) --- */
-main {
-    padding: 0 40px 40px 40px;
-}
-
+/* --- ESPORTES --- */
 .esportes-grid {
     display: grid;
-    /* Cria 4 colunas de tamanho igual */
     grid-template-columns: repeat(4, 1fr); 
-    /* Altura base das linhas (o grid vai se ajustando) */
     grid-auto-rows: 250px; 
-    gap: 25px; /* Espaçamento solicitado */
+    gap: 25px;
+    padding: 0 40px 40px 40px;
 }
 
 .grid-img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Garante que a foto preencha o quadrado sem distorcer */
+    object-fit: cover;
     border-radius: 2px;
     transition: transform 0.3s ease;
 }
 
-.grid-img:hover {
-    transform: scale(1.02);
+.grid-img:hover { transform: scale(1.02); }
+
+.tall { grid-row: span 2; }
+.wide { grid-column: span 2; }
+.big  { grid-column: span 2; grid-row: span 2; }
+
+/* --- FAMÍLIA --- */
+.familia-bar { background-color: #6B8E57 !important; }
+
+.familia-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr; 
+    gap: 25px;
+    padding: 0 40px 40px 40px;
+    align-items: start;
 }
 
-/* --- CLASSES PARA OS TAMANHOS DIFERENTES --- */
-/* Imagem alta (ocupa 2 linhas verticais) */
-.tall {
-    grid-row: span 2;
+.fam-img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 2px;
+    transition: transform 0.3s ease;
 }
 
-/* Imagem larga (ocupa 2 colunas horizontais) */
-.wide {
-    grid-column: span 2;
+/* --- EVENTOS --- */
+.eventos-title-bar {
+    background-color: #a93d3a;
+    width: 100%;
+    padding: 15px 40px;
+    margin-bottom: 30px;
+
 }
 
-/* Imagem Grande (quadradão - 2x2) */
-.big {
-    grid-column: span 2;
-    grid-row: span 2;
+.eventos-title-bar h1 {
+    color: #ffffff; /* ALTERADO PARA BRANCO */
+    font-family: 'Glacial Indifference', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: left;
 }
 
-/* --- FRASE FINAL --- */
-.footer-phrase {
-    text-align: center;
-    padding: 20px 0 40px 0;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #1a1a1a;
+.eventos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 25px;
+    padding: 0 40px 40px 40px;
+    grid-auto-flow: dense; 
 }
 
-/* --- RESPONSIVIDADE --- */
+.evt-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    min-height: 250px;
+}
+
+.tall-row { grid-row: span 2; height: 100%; }
+
+/* ==========================================================================
+   6. RESPONSIVIDADE
+   ========================================================================== */
 @media (max-width: 1024px) {
-    header {
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
-    }
-    
-    nav.header-center {
-        flex-direction: column;
-        gap: 15px;
-    }
+    header { flex-direction: column; gap: 20px; text-align: center; }
+    nav.header-center { flex-direction: column; gap: 15px; }
 
-    /* Ajuste do Grid para Celular/Tablet */
-    .esportes-grid {
-        grid-template-columns: repeat(2, 1fr); /* Reduz para 2 colunas */
-        grid-auto-rows: 200px;
-    }
-    
-    /* No celular, removemos algumas expansões exageradas se necessário,
-       mas manter span-2 funciona bem em 2 colunas */
-    .page-title-bar h1 {
-        font-size: 2rem;
-        text-align: center;
-    }
+    .trabalhos-grid { grid-template-columns: 1fr; }
+    .card-item { width: 100%; max-width: 400px; margin: 0 auto; height: auto; aspect-ratio: 1/1; }
+    .label { font-size: 1.5rem; bottom: 20px; }
+
+    .esportes-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 200px; }
+    .familia-grid { grid-template-columns: 1fr 1fr; }
+    .wide-shot { grid-column: span 2; }
+    .eventos-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 600px) {
-    .esportes-grid {
-        grid-template-columns: 1fr; /* 1 coluna no celular pequeno */
-        grid-auto-rows: auto; /* Altura automática */
+    .esportes-grid { grid-template-columns: 1fr; grid-auto-rows: auto; }
+    .tall, .wide, .big, .tall-row { grid-column: auto; grid-row: auto; }
+    
+    .familia-grid { grid-template-columns: 1fr; }
+    .fam-img { height: 300px; }
+    
+    .eventos-grid { grid-template-columns: 1fr; }
+}
+/* --- ESTILO ESPECÍFICO: PÁGINA ANIVERSÁRIOS --- */
+
+/* Barra de título na cor #b8702d */
+.aniversario-title-bar {
+    background-color: #b8702d; /* Cor exata solicitada */
+    width: 100%;
+    padding: 15px 40px;
+    margin-bottom: 30px;
+}
+
+.aniversario-title-bar h1 {
+    color: #ffffff;
+    font-family: 'Glacial Indifference', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: left;
+    margin: 0;
+}
+
+/* Grid configurado para exatamente 4 colunas */
+.aniversario-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas de tamanho igual */
+    gap: 25px; /* Espaçamento solicitado */
+    padding: 0 40px 40px 40px;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+/* Estilo das imagens */
+.niver-img {
+    width: 100%;
+    height: 500px; /* Altura fixa para padronizar (ajuste se suas fotos forem muito diferentes) */
+    object-fit: cover; /* Garante que a foto preencha o espaço sem distorcer */
+    border-radius: 2px;
+    transition: transform 0.3s ease;
+}
+
+.niver-img:hover {
+    transform: scale(1.02);
+}
+
+/* --- RESPONSIVIDADE ANIVERSÁRIOS --- */
+
+/* Tablet: 2 por linha */
+@media (max-width: 1024px) {
+    .aniversario-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Celular: 1 por linha (uma embaixo da outra) */
+@media (max-width: 600px) {
+    .aniversario-grid {
+        grid-template-columns: 1fr;
     }
     
-    /* Reseta os spans no celular para ficar uma embaixo da outra */
-    .tall, .wide, .big {
-        grid-column: auto;
-        grid-row: auto;
+    .niver-img {
+        height: auto; /* Altura automática no celular */
+        aspect-ratio: 1 / 1; /* Mantém quadrado no celular */
+    }
+}
+/* --- ESTILO ESPECÍFICO: PÁGINA PAISAGEM --- */
+
+/* Barra de título na cor #3d4f64 */
+.paisagem-title-bar {
+    background-color: #3d4f64; /* Azul acinzentado solicitado */
+    width: 100%;
+    padding: 15px 40px;
+    margin-bottom: 30px;
+}
+
+.paisagem-title-bar h1 {
+    color: #ffffff;
+    font-family: 'Glacial Indifference', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: left;
+    margin: 0;
+}
+
+/* Grid de Paisagem */
+.paisagem-grid {
+    display: grid;
+    /* 4 colunas de largura igual */
+    grid-template-columns: repeat(4, 1fr); 
+    /* Altura base das linhas (define a altura das imagens pequenas) */
+    grid-auto-rows: 250px; 
+    gap: 25px; /* Espaçamento solicitado */
+    padding: 0 40px 40px 40px;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+/* Estilo Base das Imagens */
+.paisagem-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 2px;
+    transition: transform 0.3s ease;
+}
+
+.paisagem-img:hover {
+    transform: scale(1.02);
+}
+
+/* Classe para as imagens verticais (ocupam 2 linhas de altura) */
+.p-vertical {
+    grid-row: span 2;
+}
+
+/* --- RESPONSIVIDADE PAISAGEM --- */
+
+/* Tablet: Muda para 2 colunas */
+@media (max-width: 1024px) {
+    .paisagem-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 300px; /* Um pouco mais alto no tablet */
+    }
+    
+    /* No tablet, removemos o span vertical para ficar tudo uniforme ou mantemos se quiser mosaico */
+    .p-vertical {
+        grid-row: span 2; /* Mantém vertical alto */
+    }
+}
+
+/* Celular: 1 coluna */
+@media (max-width: 600px) {
+    .paisagem-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: auto;
+    }
+    
+    .p-vertical {
+        grid-row: auto; /* Remove altura forçada */
+    }
+    
+    .paisagem-img {
+        height: 300px; /* Altura fixa para celular */
+    }
+}
+
+/* --- ESTILO ESPECÍFICO: PÁGINA SOBRE --- */
+
+/* Container Flex para dividir texto e imagem */
+.sobre-container {
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: space-between;
+    gap: 50px;
+    padding: 40px 60px;
+    max-width: 1400px;
+    margin: 0 auto;
+    min-height: 80vh; /* Garante que ocupe boa parte da tela */
+}
+
+/* --- Lado Esquerdo: Texto --- */
+.sobre-text-content {
+    flex: 1; /* Ocupa metade do espaço */
+    text-align: center; /* Texto centralizado como na imagem */
+    padding-right: 20px;
+}
+
+.sobre-text-content h1 {
+    font-family: 'Glacial Indifference', sans-serif;
+    color: #120d0c; /* Cor solicitada */
+    font-size: 5rem; /* Tamanho grande para impacto visual */
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.sobre-paragraphs p {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: #3e3e3e;
+    margin-bottom: 25px;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Lado Direito: Imagem --- */
+.sobre-image-content {
+    flex: 1; /* Ocupa a outra metade */
+    display: flex;
+    justify-content: center;
+}
+
+.sobre-photo {
+    width: 100%;
+    max-width: 500px; /* Limita a largura para manter a verticalidade */
+    height: auto;
+    aspect-ratio: 3/4; /* Proporção vertical aproximada */
+    object-fit: cover;
+    border-radius: 2px;
+    box-shadow: 10px 10px 0px rgba(0,0,0,0.05); /* Detalhe sutil de design */
+}
+
+/* --- RESPONSIVIDADE SOBRE --- */
+
+/* Tablet e Celular: Empilha um sobre o outro */
+@media (max-width: 1024px) {
+    .sobre-container {
+        flex-direction: column-reverse; /* Imagem em cima ou texto em baixo? Vamos manter padrão de fluxo: Texto depois Imagem ou vice-versa. Geralmente Imagem primeiro no mobile fica bonito, mas o layout pede título. Vamos usar column normal */
+        flex-direction: column;
+        padding: 40px 20px;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .sobre-text-content {
+        padding-right: 0;
+    }
+
+    .sobre-text-content h1 {
+        font-size: 3.5rem; /* Diminui título no mobile */
+    }
+    
+    .sobre-photo {
+        max-width: 100%; /* Imagem ocupa largura total no mobile */
+        max-height: 500px;
     }
 }
