@@ -8,7 +8,7 @@
 }
 
 body {
-    background-color: #faffe0; /* Tom creme das imagens */
+    background-color: #ffffff; /* Tom creme das imagens */
     font-family: 'Josefin Sans', sans-serif;
     color: #000;
     overflow-x: hidden;
@@ -67,7 +67,7 @@ nav a:hover {
 }
 
 .page-title-bar h1 {
-    color: #fff;
+    color: #ffffff;
     font-weight: 700;
     font-size: 2.5rem;
     text-align: left;
@@ -495,5 +495,144 @@ main {
     .sobre-photo {
         max-width: 100%; /* Imagem ocupa largura total no mobile */
         max-height: 500px;
+    }
+}
+/* --- ESTILO ESPECÍFICO: PÁGINA AGENDA --- */
+
+/* Container Principal Flex: Imagem - Conteúdo - Imagem */
+.agenda-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    max-width: 1400px;
+    margin: 0 auto;
+    min-height: 70vh;
+}
+
+/* --- Imagens Laterais --- */
+.agenda-side-img {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.agenda-side-img img {
+    width: 300px; /* Largura fixa para manter o layout da referência */
+    height: 400px;
+    object-fit: cover;
+    border-radius: 2px;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+}
+
+/* --- Conteúdo Central (Texto e Ícones) --- */
+.agenda-center-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+/* Título */
+.agenda-title {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #120d0c;
+    font-family: 'Glacial Indifference', sans-serif;
+}
+
+.agenda-title h1 {
+    font-size: 5rem;
+    font-weight: 700;
+    line-height: 0.9;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.agenda-title h2 {
+    font-size: 2rem;
+    font-weight: 400; /* Mais fino, conforme imagem */
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 5px;
+}
+
+/* Lista de Links Sociais */
+.social-links-area {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: flex-start; /* Alinha os itens à esquerda do bloco central */
+}
+
+.social-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+    color: #000;
+    font-size: 1.8rem;
+    font-weight: 600;
+    font-family: 'Glacial Indifference', sans-serif; /* Ou Josefin Sans se preferir */
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.social-row:hover {
+    transform: translateX(5px);
+    opacity: 0.8;
+}
+
+.social-row img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+/* Ajuste específico para ícones ficarem pretos/monocromáticos se desejar */
+/* A imagem de referência tem ícones pretos sólidos */
+
+/* --- RESPONSIVIDADE AGENDA --- */
+
+/* Tablet (oculta imagens laterais ou diminui) */
+@media (max-width: 1024px) {
+    .agenda-container {
+        flex-direction: column;
+        gap: 40px;
+        padding: 40px 20px;
+    }
+
+    .agenda-side-img img {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        aspect-ratio: 4/5;
+    }
+    
+    /* Ordem: Título primeiro, depois links, depois imagens no final */
+    .agenda-center-content {
+        order: -1; 
+        margin-bottom: 20px;
+    }
+}
+
+/* Celular */
+@media (max-width: 600px) {
+    .agenda-title h1 {
+        font-size: 3.5rem;
+    }
+    
+    .agenda-title h2 {
+        font-size: 1.5rem;
+    }
+
+    .social-row {
+        font-size: 1.5rem;
+    }
+    
+    .social-row img {
+        width: 40px;
+        height: 40px;
     }
 }
