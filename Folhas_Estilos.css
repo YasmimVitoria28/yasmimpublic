@@ -261,13 +261,35 @@ main {
 }
 
 @media (max-width: 600px) {
-    .esportes-grid { grid-template-columns: 1fr; grid-auto-rows: auto; }
-    .tall, .wide, .big, .tall-row { grid-column: auto; grid-row: auto; }
-    
-    .familia-grid { grid-template-columns: 1fr; }
-    .fam-img { height: 300px; }
-    
-    .eventos-grid { grid-template-columns: 1fr; }
+    /* Esportes */
+    .esportes-grid { 
+        grid-template-columns: 1fr; 
+        grid-auto-rows: auto; 
+        padding: 0 20px 20px 20px; 
+    }
+    .tall, .wide, .big, .tall-row { 
+        grid-column: auto; 
+        grid-row: auto; 
+    }
+    
+    /* Família */
+    .familia-grid { 
+        grid-template-columns: 1fr; 
+        padding: 0 20px 20px 20px; 
+    }
+    .fam-img { 
+        height: auto; 
+        aspect-ratio: 1 / 1; 
+    }
+    .wide-shot { 
+        grid-column: auto; 
+    }
+    
+    /* Eventos */
+    .eventos-grid { 
+        grid-template-columns: 1fr; 
+        padding: 0 20px 20px 20px; 
+    }
 }
 /* --- ESTILO ESPECÍFICO: PÁGINA ANIVERSÁRIOS --- */
 
