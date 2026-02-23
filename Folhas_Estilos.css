@@ -208,6 +208,9 @@ main {
     border-radius: 2px;
     transition: transform 0.3s ease;
 }
+.fam-img:hover {
+    transform: scale(1.02);
+}
 
 /* --- EVENTOS --- */
 .eventos-title-bar {
@@ -239,6 +242,10 @@ main {
     height: 100%;
     object-fit: cover;
     min-height: 250px;
+    transition: transform 0.3s ease;/*TRANSIÇÃO (ZOOM NA IMAGEM)*/
+}
+.evt-img:hover {
+    transform: scale(1.02);/*TRANSIÇÃO (ZOOM NA IMAGEM) HOOVER*/
 }
 
 .tall-row { grid-row: span 2; height: 100%; }
