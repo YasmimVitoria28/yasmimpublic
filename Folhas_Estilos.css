@@ -269,33 +269,41 @@ main {
 
 @media (max-width: 600px) {
     /* Esportes */
-    .esportes-grid { 
+    .esportes-grid { 
         grid-template-columns: 1fr; 
         grid-auto-rows: auto; 
         padding: 0 20px 20px 20px; 
     }
-    .tall, .wide, .big, .tall-row { 
+    .tall, .wide, .big, .tall-row { 
         grid-column: auto; 
         grid-row: auto; 
     }
-    
+    .grid-img {
+        height: auto; 
+        aspect-ratio: 1 / 1; /* Transforma em quadrada no celular */
+    }
+    
     /* Família */
-    .familia-grid { 
+    .familia-grid { 
         grid-template-columns: 1fr; 
         padding: 0 20px 20px 20px; 
     }
-    .fam-img { 
+    .fam-img { 
         height: auto; 
         aspect-ratio: 1 / 1; 
     }
     .wide-shot { 
         grid-column: auto; 
     }
-    
+    
     /* Eventos */
-    .eventos-grid { 
+    .eventos-grid { 
         grid-template-columns: 1fr; 
         padding: 0 20px 20px 20px; 
+    }
+    .evt-img {
+        height: auto; 
+        aspect-ratio: 1 / 1; /* Transforma em quadrada no celular */
     }
 }
 /* --- ESTILO ESPECÍFICO: PÁGINA ANIVERSÁRIOS --- */
@@ -360,6 +368,7 @@ main {
         aspect-ratio: 1 / 1; /* Mantém quadrado no celular */
     }
 }
+
 /* --- ESTILO ESPECÍFICO: PÁGINA PAISAGEM --- */
 
 /* Barra de título na cor #3d4f64 */
@@ -437,7 +446,8 @@ main {
     }
     
     .paisagem-img {
-        height: 300px; /* Altura fixa para celular */
+        height: auto; /* Ajustado para auto para permitir a proporção quadrada */
+        aspect-ratio: 1 / 1; /* Mantém quadrado no celular, igual aos outros */
     }
 }
 
@@ -526,6 +536,7 @@ main {
         max-height: 500px;
     }
 }
+
 /* --- ESTILO ESPECÍFICO: PÁGINA AGENDA --- */
 
 /* Container Principal Flex: Imagem - Conteúdo - Imagem */
